@@ -15,13 +15,13 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start development settings - unsuitable for ticketion
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in ticketion secret!
 SECRET_KEY = '6rta5@qrc4v7@%nuizck-#rasnm46qjlkabl9bwf1%!tt@tu21'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in ticketion!
 DEBUG = True
 
 ALLOWED_HOSTS = [os.environ.get("C9_HOSTNAME"), '127.0.0.1']
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'sorting',
     'home',
     'tickets',
-    'payment',
+    'payments',
 ]
 
 MIDDLEWARE = [
