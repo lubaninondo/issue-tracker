@@ -9,6 +9,11 @@ body, html {
     background-color: #fff;
 }
 
+
+.nav-item{
+    color: white;
+}
+
 .accountform {
     padding-top: 20px;
 }
