@@ -1,8 +1,54 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% block page_title %}{{ user }}'s Profile{% endblock %} {% block page_heading %}
+{% block page_title %}{{user}}'s Profile{% endblock %}
 
-{{ user }}'s Profile{% endblock %} {% block content %}
+{% block page_heading %}{{user}}'s Profile{% endblock %}
 
-<p>{{ profile.email }}</p>
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-12 text-left">
+                    <span><i class="fas fa-user"></i></i>USERNAME</span>
+                </div>
+            </div>
+            <div class="card-body text-center">
+                {{ user.username }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-12 text-left">
+                    <span><i class="far fa-user-circle"></i>/i>ACCOUNT TYPE</span>
+                </div>
+            </div>
+            <div class="card-body text-center">
+                {% if user.is_superuser %}
+                ADMINISTRATOR
+                {% else %}
+                BASIC
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-12 text-left">
+                    <span><i class="fas fa-id-card fa-lg page-icon"></i>NAME</span>
+                </div>
+            </div>
+            <div class="card-body text-center">
+                {{ user.first_name }} {{ user.last_name }}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

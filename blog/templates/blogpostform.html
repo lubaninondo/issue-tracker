@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block title %}New Blog Post{% endblock %} 
+{% block content %}
+    <h1 class="new-ticket-title"><i class="fa fa-book-open fa-md page-icon"></i>BLOG POST CREATOR</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <button id="publish" type="submit" class="btn btn-base">PUBLISH</button>
+    </form>
+{% endblock %}

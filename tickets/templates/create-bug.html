@@ -1,0 +1,11 @@
+{% extends 'base.html' %} 
+{% load bootstrap_tags %}
+{% block title %} Create Bug {% endblock %} 
+{% block content %}
+    <h1 class="new-ticket-title"><i class="fa fa-bug fa-md page-icon"></i>BUG CREATOR</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <button type="submit" class="btn btn-base create">CREATE</button>    
+    </form>
+{% endblock %}

@@ -1,23 +1,19 @@
 from django import forms
-from django.forms import ModelForm
-from django.utils.translation import ugettext_lazy as _
-from .models import Ticket, Comment
+from .models import Ticket
 
-
-class TicketForm(ModelForm):
+class TicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
-        fields = ['title', 'description', 'priority', 'ticket_type']
-        labels = {
-            'ticket_type': _('Ticket Type'),
-        }
-        help_texts = {
-            'ticket_type': _('Please note: Feature request will cost €30')
-        }
-
-
-class CommentForm(ModelForm):
-    text = forms.CharField(widget=forms.Textarea, label='')
-    class Meta:
-        model = Comment
-        fields = ['text']
+        fields = ('title', 'summary', 'category', 'screenshot')
+        
+        
+class PaymentForm(forms.Form):
+    MONTH_CHOICES = [(i, i) for i in range(1, 13)]
+    YEAR_CHOICES = [(i, i) for i in range(2019, 2030)]
+    
+    # required field set to False for security purposes (Stripe handles encryption of credit card details)
+    credit_card_number = forms.CharField(label="Credit Card Number", required=False)
+    cvv = forms.CharField(label="Security Code (CVV)", required=False)
+    expiry_month = forms.ChoiceField(label="Month", choices=MONTH_CHOICES, required=False)
+    expiry_year = forms.ChoiceField(label="Year", choices=YEAR_CHOICES, required=False)
+    stripe_id = forms.CharField(widget=forms.HiddenInput)

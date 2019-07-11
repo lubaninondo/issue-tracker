@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% load static from staticfiles %}
+{% load bootstrap_tags %} 
+{% block title %} Upvote Feature Request {% endblock %} {% block content %}
+{% block head_js %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+    //<![CDATA[
+        Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
+<h1>UPVOTE FEATURE REQUEST</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form role="form" method="POST" id="payment-form" action="{% url 'upvote_payment' pk=ticket.pk %}">
+                <div class="form-group col-12">
+                    {% csrf_token %} 
+                    {{ payment_form | as_bootstrap }}
+                </div>
+                <div class="form-group col-md-12">
+                    <input class=" btn btn-base" id="submit_payment_btn" name="commit" type="submit" value="SUBMIT PAYMENT">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

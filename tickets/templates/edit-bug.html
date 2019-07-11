@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% load bootstrap_tags %}
+{% block title %} Edit Bug {% endblock %} 
+{% block content %}
+    <h1>EDIT BUG</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <div class="row">
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-base">SAVE</button>    
+            </div>
+        </div>
+    </form>
+{% endblock %}

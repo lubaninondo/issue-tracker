@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %} Blog {% endblock %} 
+{% block content %}
+   {% if user.is_superuser %}
+    <div class="row">
+        <div class="col-8 offset-2 text-center">
+            <a href="{% url 'new_post' %}" class="btn btn-base"><i class="fa fa-plus fa-lg page-icon"></i>CREATE BLOG POST</a>
+        </div>
+    </div>
+    {% endif %}
+    {% for post in posts %}
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-7 text-left card-title">
+                                    <i class="fa fa-book-open fa-lg page-icon"></i>
+                                    <span>BLOG POST</span> 
+                                </div>
+                                <div class="col-5 text-right card-title view-btn">
+                                    <a class="view-link" href="{% url 'post_detail' post.id %}">
+                                        <span class="btn">VIEW</span><i class="fa fa-eye fa-lg page-icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-left">
+                                    <h6>{{ post.title }}</h6>
+                                    <p class="card-text">
+                                        {% if post.content|length > 30 %}
+                                            {{ post.content|truncatewords:30 }}
+                                        {% else %}
+                                            {{ post.content }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <span>VIEWS: {{ post.views }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

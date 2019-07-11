@@ -1,33 +1,20 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.utils import timezone
-from django.urls import reverse
 
-PRIORITY_CHOICES = (('critical', 'Critical'),
-                    ('major', 'Major'),
-                    ('medium', 'Medium'),
-                    ('minor', 'Minor'),
-                    ('trivial', 'Trivial'))
-TYPE_CHOICES = (('bug', 'Bug'),
-                ('feature', 'Feature'))
-
+# Create your models here.
 class Ticket(models.Model):
-
-    title = models.CharField(max_length=64, default=' ', blank=False)
-    description = models.TextField(blank=False)
-    priority = models.CharField(max_length=8, choices=PRIORITY_CHOICES, default='trivial')
-    ticket_type = models.CharField(max_length=7, choices=TYPE_CHOICES, default='bug')
-    date_added = models.DateTimeField(default=timezone.now, blank=False, editable=False)
-    created_by = models.CharField(max_length=32, default=' ', blank=False, editable=False)
-
+    
+    title = models.CharField(max_length=254, default='', blank=False)
+    summary = models.TextField(blank=False)
+    ticket_type = models.CharField(max_length=30, blank=False)
+    screenshot = models.ImageField(upload_to="images", blank=True, null=True)
+    upvotes = models.IntegerField(default=0)
+    total_paid = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    creator = models.CharField(max_length=150, blank=False) 
+    category = models.CharField(max_length=30, default='', blank=False)
+    status = models.CharField(max_length=30, default='Backlog')
+    initiation_date = models.DateTimeField(blank=False, null=False, default=timezone.now)
+    completion_date = models.DateTimeField(blank=True, null=True)
+    
     def __str__(self):
-        return self.title
-
-class Comment(models.Model):
-    ticket = models.ForeignKey('tickets.Ticket', on_delete=models.CASCADE, related_name='comments')
-    author = models.CharField(max_length=32)
-    text = models.CharField(max_length=512)
-    created_date = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return self.text
+        return "{0} - {1}".format(self.ticket_type, self.title)

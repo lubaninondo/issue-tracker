@@ -1,0 +1,115 @@
+{% extends 'base.html' %} {% load bootstrap_tags %} {% block title %} Tickets {% endblock %} {% block content %} 
+<div class="row">
+    <div class="col-12 text-right">
+        <div class="dropdown">
+          <a class="btn btn-base dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            FILTER
+          </a>
+        
+          <div class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'sort' sort='all' %}"><i class="fa fa-ticket-alt fa-lg page-icon"></i>ALL</a>
+              <a class="dropdown-item" href="{% url 'sort' sort='bugs' %}"><i class="fa fa-bug fa-lg page-icon"></i>BUGS</a>
+              <a class="dropdown-item" href="{% url 'sort' sort='feature_requests' %}"><i class="fa fa-lightbulb fa-lg page-icon"></i>FEATURE REQUEST</a>
+          </div>
+        </div>
+    </div>
+</div>
+
+{% for ticket in tickets %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-7 text-left card-title">
+                            {% if ticket.ticket_type == 'Bug' %}
+                            <i class="fa fa-bug fa-lg page-icon"></i>
+                            <span>BUG</span> 
+                            {% else %}
+                            <i class="fa fa-lightbulb fa-lg page-icon"></i><span>FEATURE REQUEST</span>
+                            {% endif %}
+                        </div>
+                        <div class="col-5 text-right view-btn">
+                            <a class="view-link" href="{% url 'ticket_detail' ticket.id %}">
+                                <span class="btn">VIEW</span><i class="fa fa-eye fa-lg page-icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 text-center text-md-left ticket-summary">
+                            <h6 class="ticket-title">{{ ticket.title.upper }}</h6>
+                            <p class="card-text">
+                                {% if ticket.summary|length > 30 %}
+                                    {{ ticket.summary|truncatewords:30 }}
+                                {% else %}
+                                    {{ ticket.summary }}
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-md-3 text-center ticket-status">
+                            <h6>STATUS</h6>
+                            <p>{{ ticket.status.upper }}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-2 text-center ticket-upvotes">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <h6>UPVOTES</h6>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span>{{ ticket.upvotes }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-1 text-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 text-center upvote-icon">
+                                        {% if ticket.ticket_type == 'Bug' %}
+                                        <a href="{% url 'upvote' pk=ticket.pk %}">
+                                            <span class="align-text-bottom"><i class="fas fa-angle-double-up fa-2x"></i></span>
+                                        </a>
+                                        {% else %}
+                                        <a href="#" data-toggle="modal" data-target="#upvote-payment-reminder-{{ ticket.id }}">
+                                            <span class="align-text-bottom"><i class="fas fa-angle-double-up fa-2x"></i></span>
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+
+
+<!-- Feature Request Upvote Payment Reminder -->
+<div class="modal fade" id="upvote-payment-reminder-{{ ticket.id }}" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentLabel">PAYMENT</h5>
+            </div>
+            <div class="modal-body">
+                <p>In order to upvote a feature request, a payment of <strong>30Euro</strong> is required.</p>
+                <p>Feature requests are worked on in order of amounts contributed, so the more upvotes a feature request gets, the more likely it will be implemented!</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-secondary" data-dismiss="modal">CANCEL</a>
+                <a href="{% url 'upvote_payment' pk=ticket.id %}" class="btn btn-base">PROCEED TO PAYMENT</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %} 
+{% endblock %}

@@ -1,13 +1,28 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% block page_title %}Login Page{% endblock %} 
+{% load bootstrap_tags %}
 
-{% block page_heading %}User Login{% endblock %} 
+{% block page_title %}Login Page{% endblock %}
+
+{% block page_heading %}User Login{% endblock %}
 
 {% block content %}
+<h1 class="new-ticket-title"><i class="far fa-sign-in"></i>SIGN IN</h1>
 <form method="POST">
-    {% csrf_token %} {{ login_form }}
-    <button type="submit">Login</button>
+    {% csrf_token %}
+    {{login_form | as_bootstrap}}
+    <div class="row">
+        <div class="col-12 text-center login">
+            <button type="submit" class="btn btn-base">SIGN IN</button>        
+        </div>
+        <div class="col-12 text-center">
+            <a class="btn btn-secondary login" href="{% url 'password_reset' %}">FORGOTTEN PASSWORD?</a></p>    
+        </div>
+        <div id="register" class="col-12 text-center">
+            <a class="btn btn-secondary login" href="{% url 'registration' %}">REGISTER</a></p>    
+        </div>
+    </div>
 </form>
-<p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+
+
 {% endblock %}

@@ -14,22 +14,22 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from accounts.views import index
-from accounts import urls as accounts_urls
+from django.views.generic import RedirectView, TemplateView
+from accounts import urls as urls_accounts
 from tickets import urls as urls_tickets
-from search import urls as urls_search
-from tickets.views import all_tickets, one_ticket
-from home.views import index
-from django.conf import settings
-from payment.views import payment_form, checkout
-from django.conf.urls.static import static 
+from blog import urls as urls_blog
+from statistic import urls as urls_statistic
+from tickets.views import all_tickets
+from django.views.static import serve
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
+    url(r'^$', RedirectView.as_view(url='tickets/')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index, name="index"),
-    url(r'^accounts/', include(accounts_urls)),
+    url(r'^accounts/', include(urls_accounts)),
     url(r'^tickets/', include(urls_tickets)),
-    url(r'^search/', include(urls_search)),
-    url(r'^payment-form$', payment_form, name="payment_form"),
-    url(r"^checkout$", checkout, name="checkout_page")
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^blog/', include(urls_blog)),
+    url(r'^statistic/', include(urls_statistic)),
+    url(r'^help/$', TemplateView.as_view(template_name='help.html'), name='help'),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
+]

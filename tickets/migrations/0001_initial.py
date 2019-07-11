@@ -3,7 +3,6 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import django.db.models.deletion
 import django.utils.timezone
 
 
@@ -16,29 +15,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Comment',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('author', models.CharField(max_length=32)),
-                ('text', models.CharField(max_length=512)),
-                ('created_date', models.DateTimeField(default=django.utils.timezone.now)),
-            ],
-        ),
-        migrations.CreateModel(
             name='Ticket',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(default=' ', max_length=64)),
-                ('description', models.TextField()),
-                ('priority', models.CharField(choices=[('critical', 'Critical'), ('major', 'Major'), ('medium', 'Medium'), ('minor', 'Minor'), ('trivial', 'Trivial')], default='trivial', max_length=8)),
-                ('ticket_type', models.CharField(choices=[('bug', 'Bug'), ('feature', 'Feature')], default='bug', max_length=7)),
-                ('date_added', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
-                ('created_by', models.CharField(default=' ', editable=False, max_length=32)),
+                ('title', models.CharField(default='', max_length=254)),
+                ('summary', models.TextField()),
+                ('ticket_type', models.CharField(max_length=30)),
+                ('screenshot', models.ImageField(blank=True, null=True, upload_to='images')),
+                ('upvotes', models.IntegerField(default=0)),
+                ('category', models.CharField(default='', max_length=30)),
+                ('initiation_date', models.DateTimeField(blank=True, default=django.utils.timezone.now, null=True)),
+                ('completion_date', models.DateTimeField(blank=True, null=True)),
             ],
-        ),
-        migrations.AddField(
-            model_name='comment',
-            name='ticket',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='tickets.Ticket'),
         ),
     ]
