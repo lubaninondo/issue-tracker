@@ -19,13 +19,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in ticketion secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = ('6rta5@qrc4v7@%nuizck-#rasnm46qjlkabl9bwf1%!tt@tu21')
 
 # SECURITY WARNING: don't run with debug turned on in ticketion!
 DEBUG = True
 
-ALLOWED_HOSTS = ['7b802ac4fabd408db01336ff783f2d87.vfs.cloud9.eu-west-1.amazonaws.com']
-
+ALLOWED_HOSTS = ['7b802ac4fabd408db01336ff783f2d87.vfs.cloud9.eu-west-1.amazonaws.com', 'issue-tracker2.herokuapp.com']
+#ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), 'issue-tracker2.herokuapp.com']
 
 # Application definition
 
@@ -53,7 +53,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'dj_pagination.middleware.PaginationMiddleware',
 ]
 
 ROOT_URLCONF = 'issue_tracker.urls'
@@ -80,13 +79,6 @@ WSGI_APPLICATION = 'issue_tracker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 if "DATABASE_URL" in os.environ:
     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
@@ -97,7 +89,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

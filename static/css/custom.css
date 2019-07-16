@@ -1,58 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
 
-header {
-    margin: 0;
-}
-
-.logo {
-    background: url("../media/images/unicorn.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 360px;
-    transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-}
 body {
-    font-family: Arial;
-    padding-top: 100px;
+  background-color: #00FFFF;
 }
 
-footer {
-    margin-top: 10px;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    border-top: 1px solid #ededed;
-    color: #A9A9A9;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-
-.icon-bar {
-    background-color: #fff;
-}
-
-.accountform {
-    padding-top: 20px;
-}
-
-
-
-caption p {
-    word-wrap: break-word;
-}
-
-.row.row-flex {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.panel-default {
-    border-color: transparent;
-    padding: 0 10px;
-}
-
-.panel-body {
-    height: 100%;
-}
-
