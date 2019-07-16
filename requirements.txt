@@ -13,11 +13,11 @@ colorama==0.3.9
 command-not-found==0.3
 configobj==5.0.6
 constantly==15.1.0
-cryptography==2.1.4
+cryptography>=2.3
 distro-info===0.18ubuntu0.18.04.1
 dj-database-url==0.5.0
 dj-pagination==2.4.0
-Django==1.11
+django>=1.11.22
 django-forms-bootstrap==3.1.0
 docutils==0.14
 gunicorn==19.9.0
@@ -65,7 +65,7 @@ python-dateutil==2.8.0
 python-debian==0.1.32
 pytz==2019.1
 pyxdg>=0.26
-PyYAML==3.13
+pyyaml>=4.2b1
 requests==2.22.0
 requests-unixsocket==0.1.5
 roman==2.0.0
