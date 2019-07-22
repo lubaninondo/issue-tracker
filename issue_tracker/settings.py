@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-#import env
+import env
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -19,7 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in ticketion secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+#SECRET_KEY =os.getenv("SECRET_KEY")
+SECRET_KEY="6rta5@qrc4v7@%nuizck-#rasnm46qjlkabl9bwf1%!tt@tu21"
 
 
 # SECURITY WARNING: don't run with debug turned on in ticketion!
