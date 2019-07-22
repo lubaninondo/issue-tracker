@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %} - Unicorn Attractor</title>
+    <title>{% block title %}{% endblock %} - ISSUE ATTRACTOR</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -20,7 +20,27 @@
 </head>
 
 <body>
-    <header>
+        <header>
+           
+        <div class="row hidden-xs col-sm-9">
+           <a href="https://lubani-issue-tracker.s3-eu-west-1.amazonaws.com/unicorn.jpg"></a>
+        </div>
+    
+
+       
+       
+            
+
+</div>
+
+
+
+
+
+
+        </div>
+
+
         <div class="col">
         <ul id="nav" class="list-inline menucontainer">
         <a href="{% url 'index' %}"><i class="fas fa-home"></i>HOME</a>
@@ -29,97 +49,55 @@
         <a href="{% url 'create_bug' %}"<i class="fas fa-spider"></i>BUGS</a> 
         <a href="{% url 'get_charts' %}"><i class="fas fa-chart-pie"></i>STATISTICS</a>
         <a href="{% url 'get_posts' %}"><i class="fal fa-blog"></i>BLOGS</a>
-           {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}">
-                        <i class="fa fa-user-circle fa-lg page-icon"></i> PROFILE
-                </a>
-                <a href="{% url 'logout' %}">
-                        <i class="fa fa-sign-out-alt fa-lg page-icon"></i> LOG OUT
-                </a>
-                {% else %}
-                <a href="{% url 'login' %}">
-                        <i class="fa fa-sign-in-alt fa-lg page-icon"></i> LOG IN
-                </a>
-                {% endif %}
-                        </ul>
-                    </div>
-                </div>
-    
-   <!----- <nav id="sitenav">
-    <div class="container">
-      <ul class="links">
-          <li><a href="{% url 'index' %}"><i class="fas fa-home"></i>Home</a></li>
-          <li><data-target="#ticket-types"><a href="{% url 'create_bug' %}"><i class="fas fa-spider"></i>Bugs</a></li>
-          <li><a data-toggle="modal" data-target="#payment-reminder">><i class="far fa-carrot"></i>Features</a></li>
-          <li><a href="{% url 'get_charts' %}"><i class="fas fa-chart-pie"></i>Statistics</a></li>
-          <li><a href="{% url 'get_posts' %}"><i class="fal fa-blog"></i>Blogs</a></li>
-           {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}">
-                    <li>
-                        <i class="fa fa-user-circle fa-lg page-icon"></i> PROFILE
-                    </li>
-                </a>
-                <a href="{% url 'logout' %}">
-                    <li>
-                        <i class="fa fa-sign-out-alt fa-lg page-icon"></i> LOG OUT
-                    </li>
-                </a>
-                {% else %}
-                <a href="{% url 'login' %}">
-                    <li>
-                        <i class="fa fa-sign-in-alt fa-lg page-icon"></i> LOG IN
-                    </li>
-                </a>
-                {% endif %}
-            </ul>
+        </ul>
         </div>
-    </div>
-       </ul>
-    </div>
-    </nav>---->
-      
-   <!----- <div class="main-nav">
-            <a class="col-md-4 logo" href="02-index.html"></a>
-            <div class="col-md-8">
-                <div class="row no-gutters bg-color-name-title">
-                    <div class="col heading">
-                        <h1 class="name">Unicorn Attractor</h1>
-                        <h2 class="title"> Issue- Tracker</h2>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                <div class="col">
-                <ul id="nav" class="menu">
-                <ul id="nav" class="list-inline menucontainer">
-                            <a href="{% url 'index' %}"><li><i class="fas fa-home"></i> HOME
-                    </li>
-                </a>
-                <li data-toggle="collapse" data-target="#ticket-types" class="collapsed">
-                    <i class="fa fa-plus fa-lg page-icon"></i> CREATE TICKET <span class="arrow"></span>
-                </li>
-                <ul class="sub-menu collapse" id="ticket-types">
-                    <a href="{% url 'create_bug' %}"><li><i class="fas fa-spider"></i> BUG</li></a>
-                    <a data-toggle="modal" data-target="#payment-reminder"><li><i class="far fa-carrot"></i> FEATURE REQUEST</li></a>
-                </ul>
-                <a href="{% url 'get_charts' %}">
-                    <li>
-                        <i class="fas fa-chart-pie"></i> STATISTICS
-                    </li>
-                </a>
-                <a href="{% url 'get_posts' %}">
-                    <li>
-                        <i class="fal fa-blog"></i> BLOG
-                    </li>
-                </a>
-                
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>--->
     </header>
-    
   
+  <!--------<div class="navigation">
+        <div class="brand">
+            <img src="/media/images/unicorn.jpg" class="img-fluid mx-auto rounded-circle d-none d-md-block">
+            <h4 class="d-block d-md-none small-title text-left">UNICORN ATTRACTOR</h4>
+        </div>
+        
+        <div class="menu-list">
+            < id="menu-content">
+                <a href="{% url 'index' %}">
+                    
+                        <i class="fa fa-ticket-alt fa-lg page-icon"></i> TICKETS
+                    
+                </a>
+               
+                <a href="{% url 'create_bug' %}"><li><i class="fa fa-bug fa-lg page-icon"></i> BUG</a>
+                <a data-toggle="modal" data-target="#payment-reminder"><i class="fa fa-lightbulb fa-lg page-icon"></i> FEATURE REQUEST</a>
+                
+                <a href="{% url 'get_charts' %}">
+                   
+                        <i class="fa fa-chart-bar fa-lg page-icon"></i> STATISTICS
+                    
+                </a>
+                <a href="{% url 'get_posts' %}"><i class="fa fa-newspaper fa-lg page-icon"></i> BLOG</a>
+                
+                {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">
+                    
+                        <i class="fa fa-user-circle fa-lg page-icon"></i> PROFILE
+                    
+                </a>
+                <a href="{% url 'logout' %}">
+                    
+                        <i class="fa fa-sign-out-alt fa-lg page-icon"></i> LOG OUT
+                    
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}">
+                    
+                        <i class="fa fa-sign-in-alt fa-lg page-icon"></i> LOG IN
+                    
+                </a>
+                {% endif %}
+        
+        </div>
+    </div>----->
     {% if messages %}
         <div class="alert alert-success">
             <div class="messages">
@@ -142,7 +120,7 @@
         </button>
                 </div>
                 <div class="modal-body">
-                    <p>In order to submit a feature request, a payment of <strong>25 euro/strong> is required.</p>
+                    <p>In order to submit a feature request, a payment of <strong>£50</strong> is required.</p>
                     <p>This pays for the developer's time, and you will receive an email once the feature has been implemented.</p>
                 </div>
                 <div class="modal-footer">

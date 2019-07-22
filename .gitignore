@@ -3,3 +3,6 @@ env.py
 _init_.py
 db.sqlite3
 env.py
+*.jpg
+static/
+media/

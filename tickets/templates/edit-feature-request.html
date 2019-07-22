@@ -3,7 +3,7 @@
 {% block title %} Edit Feature Request {% endblock %} 
 {% block content %}
     <h1>EDIT FEATURE REQUEST</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {{ form | as_bootstrap }}
         <button type="submit" class="btn btn-base">SAVE</button>
