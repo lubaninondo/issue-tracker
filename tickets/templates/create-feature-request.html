@@ -11,21 +11,41 @@
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
-        <h1 class="new-ticket-title"><i class="fa fa-lightbulb fa-md page-icon"></i>FEATURE REQUEST  CREATOR</h1>
-    <form role="form" method="POST" id="payment-form" enctype="multipart/form-data" action="{% url 'create_feature_request' %}">
+       <!---- <h1 class="new-ticket-title"><i class="fa fa-lightbulb fa-md page-icon"></i>FEATURE REQUEST  CREATOR</h1>-->
+    <!------<form role="form" method="POST" id="payment-form" enctype="multipart/form-data" action="{% url 'create_feature_request' %}">
             <div class="form-group">
-                {% csrf_token %} 
                 {{ ticket_form | as_bootstrap }}
             </div>
             <h3 class="payment-title"><i class="fa fa-credit-card fa-md page-icon"></i>PAYMENT</h3>
             <p class="payment-amount text-center"><i class="fa fa-money-bill fa-md page-icon"></i>€50</p>
-            <div class="form-group" method="POST">
-                {% csrf_token %} 
+            <div class="form-group" >
+               
                 {{ payment_form | as_bootstrap }}
             </div>
+             {% csrf_token %} 
             <div class="form-group">
-                <input class=" btn btn-base" id="submit_payment_btn" name="commit" type="submit" value="PURCHASE FEATURE REQUEST">
+                <input class=" btn btn-base" id="submit_payment_btn"  method="POST" name="commit" type="submit" value="PURCHASE FEATURE REQUEST">
             </div>
-    </form>
+            
+    </form>----->
+<form role="form" method="post" id="payment-form" action="{% url 'create_feature_request' %}">
+    <legend>Payment Details</legend>
 
+    <div id="credit-card-errors" style="display: none;">
+        <div id="alert-message block-message error" id="stripe-error-message"></div>
+    </div>
+
+    <div class="form-group col-md-6">
+        {{ ticket_form | as_bootstrap }}
+    </div>
+
+    <div class="form-group col-md-6">
+         
+         {{ payment_form | as_bootstrap }}
+    </div>
+    {% csrf_token %}
+    <div class="form-group col-md-12">
+        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+    </div>
+</form>
 {% endblock %}
