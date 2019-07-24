@@ -16,7 +16,5 @@ class Migration(migrations.Migration):
             model_name='comment',
             name='ticket',
         ),
-        migrations.DeleteModel(
-            name='Comment',
-        ),
+       
     ]

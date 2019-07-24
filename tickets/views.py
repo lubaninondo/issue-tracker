@@ -40,7 +40,7 @@ def upvote_payment(request, pk):
         payment_form = PaymentForm(request.POST)
         if payment_form.is_valid():
             try:
-                customer = stripe.Charge.create(amount = 30,
+                customer = stripe.Charge.create(amount = 500,
                                                 currency = "€",
                                                 description = request.user.email,
                                                 card = payment_form.cleaned_data['stripe_id'],
@@ -98,6 +98,7 @@ def create_bug(request):
                             ticket_type='Bug',
                             screenshot=form.cleaned_data['screenshot'],
                             creator=request.user,
+                            category=form.cleaned_data['category'],
                             initiation_date=timezone.now())
             ticket.save()
             return redirect(ticket_detail, ticket.pk)
@@ -115,7 +116,7 @@ def create_feature_request(request):
         if ticket_form.is_valid() and payment_form.is_valid():
             try:
                 customer = stripe.Charge.create(amount = 50,
-                                                currency = "Euro",
+                                                currency = "€",
                                                 description = request.user.email,
                                                 card = payment_form.cleaned_data['stripe_id'],
                                                 )
@@ -130,6 +131,7 @@ def create_feature_request(request):
                                 total_paid = customer.amount / 100,
                                 screenshot=ticket_form.cleaned_data['screenshot'],
                                 creator=request.user,
+                                category=ticket_form.cleaned_data['category'],
                                 initiation_date=timezone.now())
                 ticket.save()
                 return redirect(ticket_detail, ticket.id)
@@ -159,6 +161,7 @@ def edit_ticket(request, pk):
             ticket.title = form.cleaned_data['title']
             ticket.summary = form.cleaned_data['summary']
             ticket.screenshot = form.cleaned_data['screenshot']
+            ticket.category = form.cleaned_data['category']
             ticket.save()
             return redirect(ticket_detail, ticket.pk)
     else:
@@ -198,7 +201,7 @@ def change_status_complete(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
     
     subject = "Unicorn Attractor - Ticket #" + str(ticket.id)
-    from_email, to = 'lubaninondo@yahoo.com', request.user.email
+    from_email, to = 'lubaninondo@gmail.com', request.user.email
     html_content = "<p>Hi " + ticket.creator + "</p><p>You raised the below ticket on our website:</p><p><strong>TYPE:</strong> " + ticket.ticket_type + "</p><p><strong>TITLE:</strong> " + ticket.title + "</p><p>This email is to let you know this ticket has been completed. Thanks again for raising your issue.</p><p>Many thanks,</p><p>The Unicorn Attractor Team</p>" 
     msg = EmailMessage(subject, html_content, from_email, [to])
     msg.content_subtype = "html"

@@ -1,7 +1,11 @@
-body {
+nav {
     font-family: Arial;
     padding-top: 100px;
+    background-color: transparent;
+    background-color: #660033;
 }
+
+
 
 footer {
     margin-top: 40px;
