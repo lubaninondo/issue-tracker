@@ -1,3 +1,9 @@
+body {
+    background-color: blue;
+    background-position: center;
+    margin:0;
+    }
+
 nav {
     font-family: Arial;
     padding-top: 100px;

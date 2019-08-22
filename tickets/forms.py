@@ -2,9 +2,12 @@ from django import forms
 from .models import Ticket
 
 class TicketForm(forms.ModelForm):
-    class Meta:
+   title = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'placeholder': 'TITLE'}))
+   summary = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'SUMMARY'}))
+ 
+class Meta:
         model = Ticket
-        fields = ('title', 'summary', 'screenshot')
+        fields = ['title', 'summary', 'completion_date']
         
         
 class PaymentForm(forms.Form):
@@ -17,4 +20,3 @@ class PaymentForm(forms.Form):
     expiry_month = forms.ChoiceField(label="Month", choices=MONTH_CHOICES, required=False)
     expiry_year = forms.ChoiceField(label="Year", choices=YEAR_CHOICES, required=False)
     stripe_id = forms.CharField(widget=forms.HiddenInput)
-    
