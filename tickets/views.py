@@ -41,7 +41,7 @@ def upvote_payment(request, pk):
         if payment_form.is_valid():
             try:
                 customer = stripe.Charge.create(amount = 500,
-                                                currency = "GBP",
+                                                currency = "eur",
                                                 description = request.user.email,
                                                 card = payment_form.cleaned_data['stripe_id'],
                                                 )
@@ -114,21 +114,20 @@ def create_feature_request(request):
         
         if ticket_form.is_valid() and payment_form.is_valid():
             try:
-                customer = stripe.Charge.create(amount = 5000,
-                                                currency = "Euro",
+                customer = stripe.Charge.create(amount = 3000,
+                                                currency = "eur",
                                                 description = request.user.email,
                                                 card = payment_form.cleaned_data['stripe_id'],
                                                 )
             except:
                 messages.error(request, "Your card was declined")
                 
-            if customer.paid:
-                messages.error(request, "Your payment was successful")
-                ticket = Ticket(title=ticket_form.cleaned_data['title'],
+                if customer.paid:
+                    messages.error(request, "Your payment was successful")
+                    ticket = Ticket(title=ticket_form.cleaned_data['title'],
                                 summary=ticket_form.cleaned_data['summary'],
                                 ticket_type='Feature Request',
                                 total_paid = customer.amount / 100,
-                                screenshot=ticket_form.cleaned_data['screenshot'],
                                 creator=request.user,
                                 initiation_date=timezone.now())
                 ticket.save()
@@ -158,7 +157,6 @@ def edit_ticket(request, pk):
         if form.is_valid():
             ticket.title = form.cleaned_data['title']
             ticket.summary = form.cleaned_data['summary']
-            ticket.screenshot = form.cleaned_data['screenshot']
             ticket.save()
             return redirect(ticket_detail, ticket.pk)
     else:

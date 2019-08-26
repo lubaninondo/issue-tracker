@@ -4,10 +4,9 @@ from .models import Ticket
 class TicketForm(forms.ModelForm):
    title = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'placeholder': 'TITLE'}))
    summary = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'SUMMARY'}))
- 
-class Meta:
+   class Meta:
         model = Ticket
-        fields = ['title', 'summary', 'completion_date']
+        fields = ['title', 'summary']
         
         
 class PaymentForm(forms.Form):
