@@ -75,11 +75,11 @@ def ticket_detail(request, pk):
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
-            author = request.user if request.user else 'anonymous'
-            comment = Comment(ticket=ticket,
-                                author=author,
+            user = request.user if request.user else 'anonymous'
+            comment = Comment(id=id,
+                                user=user,
                                 comment=comment_form.cleaned_data['comment'],
-                                completion_date=timezone.now())
+                                comment_date=timezone.now())
             comment.save()
             return redirect(ticket_detail, ticket.pk)
     else:
@@ -113,6 +113,12 @@ def create_feature_request(request):
         payment_form = PaymentForm(request.POST)
         
         if ticket_form.is_valid() and payment_form.is_valid():
+            ticket = Ticket(title=ticket_form.cleaned_data['title'],
+                                summary=ticket_form.cleaned_data['summary'],
+                                ticket_type='Feature Request',
+                                creator=request.user,
+                                initiation_date=timezone.now())
+            ticket.save()
             try:
                 customer = stripe.Charge.create(amount = 3000,
                                                 currency = "eur",
@@ -124,18 +130,11 @@ def create_feature_request(request):
                 
                 if customer.paid:
                     messages.error(request, "Your payment was successful")
-                    ticket = Ticket(title=ticket_form.cleaned_data['title'],
-                                summary=ticket_form.cleaned_data['summary'],
-                                ticket_type='Feature Request',
-                                total_paid = customer.amount / 100,
-                                creator=request.user,
-                                initiation_date=timezone.now())
-                ticket.save()
-                return redirect(ticket_detail, ticket.id)
+                    return redirect(ticket_detail, ticket.id)
                 
             else:
-                messages.error(request, "Unable to take payment")
-        
+                     messages.error(request, "Your payment was successful")
+                     return redirect(ticket_detail, ticket.id)   
         else:
             print(payment_form.errors)
             messages.error(request, "We were unable to take payment with that card")
@@ -196,7 +195,7 @@ def change_status_complete(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
     
     subject = "Unicorn Attractor - Ticket #" + str(ticket.id)
-    from_email, to = 'uattractor@gmail.com', request.user.email
+    from_email, to = 'lubaninondo@yahoo.com', request.user.email
     html_content = "<p>Hi " + ticket.creator + "</p><p>You raised the below ticket on our website:</p><p><strong>TYPE:</strong> " + ticket.ticket_type + "</p><p><strong>TITLE:</strong> " + ticket.title + "</p><p>This email is to let you know this ticket has been completed. Thanks again for raising your issue.</p><p>Many thanks,</p><p>The Unicorn Attractor Team</p>" 
     msg = EmailMessage(subject, html_content, from_email, [to])
     msg.content_subtype = "html"

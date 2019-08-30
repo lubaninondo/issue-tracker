@@ -14,6 +14,7 @@
         <h1 class="new-ticket-title"><i class="fa fa-lightbulb fa-md page-icon"></i>FEATURE REQUEST  CREATOR</h1>
         <form role="form" method="POST" id="payment-form" enctype="multipart/form-data" action="{% url 'create_feature_request' %}" novalidate>
             <div class="form-group">
+             
                 {{ ticket_form | as_bootstrap }}
             </div>
             <h3 class="payment-title"><i class="fa fa-credit-card fa-md page-icon"></i>PAYMENT</h3>
