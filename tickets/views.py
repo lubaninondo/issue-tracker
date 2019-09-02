@@ -70,14 +70,13 @@ def upvote_payment(request, pk):
     
 def ticket_detail(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
-    comments = Comment.objects.filter(comment='id')
+    comments = Comment.objects.filter(comment='user')
     
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             user = request.user if request.user else 'anonymous'
-            comment = Comment(id=id,
-                                user=user,
+            comment = Comment(user=user,
                                 comment=comment_form.cleaned_data['comment'],
                                 comment_date=timezone.now())
             comment.save()
