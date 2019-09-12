@@ -10,7 +10,7 @@ from comments.models import Comment
 from comments.forms import CommentForm
 import stripe
 
-stripe.api_key = settings.STRIPE_SECRET
+stripe.api_key = SETTINGS.STRIPE_PUBLISHABLE
 
 # Create your views here.
 def all_tickets(request, sort=None):

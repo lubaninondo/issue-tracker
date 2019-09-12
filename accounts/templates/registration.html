@@ -1,4 +1,4 @@
-% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% load bootstrap_tags %}
 
@@ -8,7 +8,7 @@
 
 {% block content %}
 <h1 class="new-ticket-title"><i class="fa fa-user-plus fa-md page-icon"></i>REGISTER</h1>
-<form method="POST">
+<form method="POST" novalidate>
     {% csrf_token %}
     {{registration_form | as_bootstrap}}
     <div class="row">

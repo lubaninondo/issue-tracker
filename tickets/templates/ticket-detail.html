@@ -124,34 +124,6 @@
         </div>
     </div>
 </div>
-{% if ticket.screenshot %}
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-left">
-                            <span><i class="fas fa-camera fa-lg page-icon"></i>SCREENSHOTS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <a class="btn btn-base" href="{{ MEDIA_URL }}{{ ticket.screenshot }}" target"_blank">CLICK TO VIEW IMAGE
-                                <i class="fas fa-images fa-lg page-icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <div class="card text-center">
@@ -232,47 +204,8 @@
             </div>
         </div>
     </div>
-<!--</div>-->
-<!--<div class="row">-->
-    <div class="col-xs-12 col-md-8">
-        <div class="card text-center">
-            <div class="card-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-left">
-                            <span><i class="fas fa-comments fa-lg page-icon"></i>COMMENTS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="container">
-                    {% if comments %}
-                    {% for comment in comments %}
-                    <div class="row">
-                        <div class="col-12 text-left comment-author">
-                            <p class="comment-time">{{ comment.comment_date|time:"H:i" }} on {{ comment.comment_date|date:"d M Y" }}</p>
-                        </div>
-                        <div class="col-12 text-left">
-                            <p class="comment-user"><strong>{{ comment.user }} wrote:</strong></p>
-                        </div>
-                        <div class="col-12 text-left">
-                            <p class="comment-text">{{ comment.comment }}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                    <div class="row">
-                        <div class="col-12">
-                            <a href="#" data-toggle="modal" data-target="#add-comment" class="btn btn-base">
-                                <span><i class="fas fa-plus fa-lg page-icon"></i>ADD COMMENT</span>
-                            </a> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+   
 </div>
 
 <!-- Change Status Modal -->

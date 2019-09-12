@@ -19,8 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in ticketion secret!
-#SECRET_KEY =os.getenv("SECRET_KEY")
-SECRET_KEY="6rta5@qrc4v7@%nuizck-#rasnm46qjlkabl9bwf1%!tt@tu21"
+SECRET_KEY =os.getenv("SECRET_KEY")
+
 
 
 # SECURITY WARNING: don't run with debug turned on in ticketion!

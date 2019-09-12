@@ -1,67 +1,108 @@
-body {
-    background-color: red;
-    font-family: Arial;
-    padding-top: 100px;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
+
+body, html {
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 40px;
+    background-color: #0000FF;
 }
 
-footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #ededed;
-    color: #A9A9A9;
-}
 
-.icon-bar {
-    background-color: #fff;
-}
 
 .accountform {
     padding-top: 20px;
 }
 
-.badge {
-    padding-left: 9px;
-    padding-right: 9px;
-    -webkit-border-radius: 9px;
-    -moz-border-radius: 9px;
-    border-radius: 9px;
-}
 
-.label-warning[href],
-.badge-warning[href] {
-    background-color: #c67605;
-}
 
-.product {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-}
-
-caption p {
-    word-wrap: break-word;
-}
-
-.row.row-flex {
-    display: flex;
-    flex-wrap: wrap;
+.main-content {
+    height: 100%;
+    max-width: 1024px;
     margin-top: 30px;
 }
 
-.panel-default {
-    border-color: transparent;
-    padding: 0 10px;
+.list-group-item {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px 20px 0px 30px;
+}
+.nav {
+  overflow: auto;
+  font-family: verdana;
+  font-size: 12px;
+  font-weight: 200;
+  background-color: #2e353d;
+  position: fixed;
+  top: 0px;
+  width: 300px;
+  height: 100%;
+  color: #e1ffff;
 }
 
-.panel-body {
-    height: 100%;
-    border: 1px solid #ddd;
+
+
+@media (max-width: 767px) {
+  .nav-side-menu {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  
+  .brand {
+    text-align: left !important;
+    font-family: 'Staatliches';
+    font-size: 22px;
+    padding-left: 20px;
+    line-height: 50px !important;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  
+  .card-body .container .row div {
+    margin-bottom: 15px;
+  }
+  
+  .ticket-status {
+    margin-top: 15px;
+  }
+  
+  .ticket-upvotes {
+    margin-top: 10px;
+  }
+  
+  .upvote-icon {
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border: 3px solid #4f5b69;
+    border-radius: 10px;
+    background-color: #2E353D;
+  }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 40px;
+    border-top: 1px solid #ededed;
+    background-color: white;
+    color: #A9A9A9;
 }
 
-.product-description {
-    min-height: 40px;
+.footer-list {
+    display: flex;
+    list-style: none;
 }
+
+.footer-item {
+    padding-left: 10px;
+}
+
+
+}
+
+.createticketform label {
+    font-size: 1.6em;
+}
+

@@ -20,34 +20,35 @@
 </head>
 
 <body>
-        <header>
+    <header>
            
-        <div class="row hidden-xs col-sm-9">
-           <a href="https://lubani-issue-tracker.s3-eu-west-1.amazonaws.com/unicorn.jpg"></a>
-        </div>
-    
-
-       
-       
-            
-
-</div>
-
-
-
-
-
-
-        </div>
-
-
         <div class="col">
         <ul id="nav" class="list-inline menucontainer">
         <a href="{% url 'index' %}"><i class="fas fa-home"></i>HOME</a>
-        <a data-toggle="modal" data-target="#payment-reminder">><i class="far fa-carrot"></i>FEATURES</a>
-        <a href="{% url 'create_bug' %}"<i class="fas fa-spider"></i>BUGS</a> 
+        <a data-toggle="modal" data-target="#payment-reminder" class="far fa-carrot"></i>CREATE FEATURE REQUESTS</a>
+        <a href="{% url 'create_bug' %}"<i class="fas fa-spider"></i>CREATE BUGS</a> 
         <a href="{% url 'get_charts' %}"><i class="fas fa-chart-pie"></i>STATISTICS</a>
-        <a href="{% url 'get_posts' %}"><i class="fal fa-blog"></i>BLOGS</a>
+        <a href="{% url 'get_posts' %}"><i class="fab fa-blogger"></i>BLOGS</a>
+        {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">
+                    
+                        <i class="fa fa-user-circle fa-lg page-icon"></i> PROFILE
+                    
+                </a>
+                <a href="{% url 'logout' %}">
+                    
+                        <i class="fad fa-sign-out"></i> SIGN OUT
+                    
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}">
+                    
+                        <i class="fad fa-sign-in"></i> SIGN IN
+                    
+                </a>
+                {% endif %}
+        
+     
         </ul>
         </div>
     </header>
