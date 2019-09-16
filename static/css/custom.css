@@ -3,7 +3,7 @@
 body, html {
     font-family: 'Montserrat', sans-serif;
     padding-bottom: 40px;
-    background-color: #0000FF;
+    background-color: #00FF00;
 }
 
 
@@ -14,17 +14,9 @@ body, html {
 
 
 
-.main-content {
-    height: 100%;
-    max-width: 1024px;
-    margin-top: 30px;
-}
 
-.list-group-item {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 10px 20px 0px 30px;
-}
+
+
 .nav {
   overflow: auto;
   font-family: verdana;
@@ -48,22 +40,43 @@ body, html {
   }
   
   
-  .brand {
-    text-align: left !important;
-    font-family: 'Staatliches';
-    font-size: 22px;
-    padding-left: 20px;
-    line-height: 50px !important;
-    padding-top: 20px;
-    padding-bottom: 10px;
+  
+  .card {
+    margin-bottom: 15px;
+    width: 100%;
+    background-color: #FF45FF;
+  }
+   .card-header {
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #00FFFF;
   }
   
-  .card-body .container .row div {
-    margin-bottom: 15px;
+   .card-body .container .row div {
+    margin-bottom: 10px;
+    background-color: #FF45FF;
   }
+  
+  .card-title {
+    padding-top: 6px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+    background-color: #FF45FF;
+  }
+  
+  .row{
+    background-color:green;
+  }
+  .new-ticket-title, .payment-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
   
   .ticket-status {
     margin-top: 15px;
+    background-color: #FF45FF;
   }
   
   .ticket-upvotes {
@@ -96,11 +109,11 @@ body, html {
 }
 
 .footer-item {
-    padding-left: 10px;
+    padding-left: 0px;
 }
 
 
-}
+
 
 .createticketform label {
     font-size: 1.6em;
