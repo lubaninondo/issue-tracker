@@ -4,7 +4,7 @@ certifi==2018.1.18
 chardet==3.0.4
 colorama==0.3.9
 dj-database-url==0.5.0
-Django==1.11
+Django==1.11.23
 django-forms-bootstrap==3.1.0
 django-storages==1.7.1
 docutils==0.14
@@ -26,4 +26,3 @@ six==1.12.0
 stripe==2.32.0
 travis==0.0.3
 urllib3==1.25.3
-wheel==0.24.0
