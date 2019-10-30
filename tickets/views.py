@@ -65,7 +65,7 @@ def upvote_payment(request, pk):
     else:
         payment_form = PaymentForm()
         
-    return render(request, "upvote-payment.html", {'ticket': ticket, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
+    return render(request, "upvote-payment.html", {'ticket': ticket, 'payment_form': payment_form, 'publishable': '{{ publishable }}'})
                 
     
 def ticket_detail(request, pk):
@@ -145,7 +145,7 @@ def create_feature_request(request):
         
     return render(request, "create-feature-request.html", {'ticket_form': ticket_form, 
                                             'payment_form': payment_form,
-                                            'publishable': settings.STRIPE_PUBLISHABLE})
+                                            'publishable': '{{ publishable }}'})
                                             
                                             
 @login_required
