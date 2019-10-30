@@ -10,7 +10,7 @@ from comments.models import Comment
 from comments.forms import CommentForm
 import stripe
 
-stripe.api_key = settings.STRIPE_SECRET;
+stripe.api_key = settings.STRIPE_SECRET
 
 # Create your views here.
 def all_tickets(request, sort=None):
@@ -137,6 +137,7 @@ def create_feature_request(request):
         else:
             print(payment_form.errors)
             messages.error(request, "We were unable to take payment with that card")
+            
             
     else:
         ticket_form = TicketForm()
