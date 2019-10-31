@@ -10,7 +10,7 @@ from comments.models import Comment
 from comments.forms import CommentForm
 import stripe
 
-stripe.api_key = settings.STRIPE_SECRET
+stripe.api_key = settings.STRIPE_SECRET;
 
 # Create your views here.
 def all_tickets(request, sort=None):
@@ -65,7 +65,7 @@ def upvote_payment(request, pk):
     else:
         payment_form = PaymentForm()
         
-    return render(request, "upvote-payment.html", {'ticket': ticket, 'payment_form': payment_form, 'publishable': '{{ publishable }}'})
+    return render(request, "upvote-payment.html", {'ticket': ticket, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
                 
     
 def ticket_detail(request, pk):
@@ -138,14 +138,13 @@ def create_feature_request(request):
             print(payment_form.errors)
             messages.error(request, "We were unable to take payment with that card")
             
-            
     else:
         ticket_form = TicketForm()
         payment_form = PaymentForm()
         
     return render(request, "create-feature-request.html", {'ticket_form': ticket_form, 
                                             'payment_form': payment_form,
-                                            'publishable': '{{ publishable }}'})
+                                            'publishable': settings.STRIPE_PUBLISHABLE})
                                             
                                             
 @login_required
