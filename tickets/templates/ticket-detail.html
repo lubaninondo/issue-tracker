@@ -267,31 +267,4 @@
         </div>
     </div>
 </div>
-
-<!-- Add Comment Modal -->
-<div class="modal fade" id="add-comment" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title">ADD COMMENT</h6>
-            </div>
-            <div class="modal-body text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <form method="POST">
-                                {% csrf_token %}
-                                {{ comment_form | as_bootstrap }}
-                                <button type="submit" class="btn btn-base">ADD</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-secondary" data-dismiss="modal">CANCEL</a>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}

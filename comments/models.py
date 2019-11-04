@@ -6,10 +6,10 @@ from django.utils import timezone
 class Comment(models.Model):
     
    # ticket = models.ForeignKey(Ticket, null=False),
-    ticket=models.ForeignKey(on_delete=models.CASCADE, to='Ticket', null=False),
+    ticket=models.ForeignKey(on_delete=models.CASCADE, to='Ticket'),
     user = models.CharField(max_length=150, blank=False)
-    comment = models.TextField(blank=False)
-    comment_date = models.DateTimeField(blank=False, null=False, default=timezone.now)
+    comment = models.TextField(max_length=1500)
+    comment_date = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
         return self.ticket

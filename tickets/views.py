@@ -10,7 +10,7 @@ from comments.models import Comment
 from comments.forms import CommentForm
 import stripe
 
-stripe.api_key = settings.STRIPE_SECRET;
+stripe.api_key = settings.STRIPE_SECRET
 
 # Create your views here.
 def all_tickets(request, sort=None):
@@ -21,57 +21,58 @@ def all_tickets(request, sort=None):
     else:
         tickets = Ticket.objects.all()
     return render(request, 'index.html', {'tickets': tickets})
-    
 
-@login_required    
+
+@login_required
 def upvote(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
     ticket.upvotes += 1
     ticket.save()
     messages.error(request, "Upvote recorded!")
     return redirect(ticket_detail, ticket.pk)
-    
+
 @login_required
 def upvote_payment(request, pk):
-    
     ticket = get_object_or_404(Ticket, pk=pk)
-    
+
     if request.method=="POST":
         payment_form = PaymentForm(request.POST)
         if payment_form.is_valid():
             try:
+                print(payment_form['stripe_id'])
                 customer = stripe.Charge.create(amount = 500,
                                                 currency = "eur",
                                                 description = request.user.email,
                                                 card = payment_form.cleaned_data['stripe_id'],
                                                 )
+                if customer.paid:
+                    messages.error(request, "Your payment was successful")
+                    new_total = float(ticket.total_paid) + (customer.amount/100)
+                    ticket.total_paid = new_total
+                    ticket.save()
+                    return redirect(upvote, ticket.id)
+
+                else:
+                    messages.error(request, "Unable to take payment")
+                    print(payment_form.errors)
+
             except:
                 messages.error(request, "Your card was declined")
-                
-            if customer.paid:
-                messages.error(request, "Your payment was successful")
-                new_total = float(ticket.total_paid) + (customer.amount/100)
-                ticket.total_paid = new_total
-                ticket.save()
-                return redirect(upvote, ticket.id)
-                
-            else:
-                messages.error(request, "Unable to take payment")
-        
+
         else:
-            print(payment_form.errors)
+
             messages.error(request, "We were unable to take payment with that card")
-            
+
     else:
         payment_form = PaymentForm()
-        
+
     return render(request, "upvote-payment.html", {'ticket': ticket, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
-                
-    
+
+
 def ticket_detail(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
     comments = Comment.objects.filter(comment='user')
-    
+
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
@@ -83,9 +84,9 @@ def ticket_detail(request, pk):
             return redirect(ticket_detail, ticket.pk)
     else:
         comment_form = CommentForm()
-    
+
     return render(request, 'ticket-detail.html', {'ticket': ticket, 'comments': comments, 'comment_form': comment_form})
-    
+
 
 @login_required
 def create_bug(request):
@@ -94,8 +95,7 @@ def create_bug(request):
         if form.is_valid():
             ticket = Ticket(title=form.cleaned_data['title'],
                             summary=form.cleaned_data['summary'],
-                            ticket_type='Bug',
-                            screenshot=form.cleaned_data['screenshot'],
+                            ticket_type='Bug', 
                             creator=request.user,
                             initiation_date=timezone.now())
             ticket.save()
@@ -103,14 +103,14 @@ def create_bug(request):
     else:
         form = TicketForm()
     return render(request, 'create-bug.html', {'form': form})
-    
-    
+
+
 @login_required
 def create_feature_request(request):
     if request.method=="POST":
         ticket_form = TicketForm(request.POST, request.FILES)
         payment_form = PaymentForm(request.POST)
-        
+
         if ticket_form.is_valid() and payment_form.is_valid():
             ticket = Ticket(title=ticket_form.cleaned_data['title'],
                                 summary=ticket_form.cleaned_data['summary'],
@@ -126,27 +126,27 @@ def create_feature_request(request):
                                                 )
             except:
                 messages.error(request, "Your card was declined")
-                
+
                 if customer.paid:
                     messages.error(request, "Your payment was successful")
                     return redirect(ticket_detail, ticket.id)
-                
+
             else:
                      messages.error(request, "Your payment was successful")
-                     return redirect(ticket_detail, ticket.id)   
+                     return redirect(ticket_detail, ticket.id)
         else:
             print(payment_form.errors)
             messages.error(request, "We were unable to take payment with that card")
-            
+
     else:
         ticket_form = TicketForm()
         payment_form = PaymentForm()
-        
-    return render(request, "create-feature-request.html", {'ticket_form': ticket_form, 
+
+    return render(request, "create-feature-request.html", {'ticket_form': ticket_form,
                                             'payment_form': payment_form,
                                             'publishable': settings.STRIPE_PUBLISHABLE})
-                                            
-                                            
+
+
 @login_required
 def edit_ticket(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk) if pk else None
@@ -161,7 +161,7 @@ def edit_ticket(request, pk):
         form = TicketForm(instance=ticket)
         html_page = 'edit-bug.html' if ticket.ticket_type == 'Bug' else 'edit-feature-request.html'
     return render(request, html_page, {'form': form})
-    
+
 
 @login_required
 def delete_ticket(request, pk):
@@ -177,9 +177,9 @@ def change_status_backlog(request, pk):
         ticket.completion_date = None
     ticket.status = 'Backlog'
     ticket.save()
-    return redirect(ticket_detail, ticket.id) 
-  
-    
+    return redirect(ticket_detail, ticket.id)
+
+
 @login_required
 def change_status_in_progress(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
@@ -187,19 +187,19 @@ def change_status_in_progress(request, pk):
         ticket.completion_date = None
     ticket.status = 'In Progress'
     ticket.save()
-    return redirect(ticket_detail, ticket.id) 
-    
+    return redirect(ticket_detail, ticket.id)
+
 @login_required
 def change_status_complete(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
-    
+
     subject = "Unicorn Attractor - Ticket #" + str(ticket.id)
     from_email, to = 'lubaninondo@yahoo.com', request.user.email
-    html_content = "<p>Hi " + ticket.creator + "</p><p>You raised the below ticket on our website:</p><p><strong>TYPE:</strong> " + ticket.ticket_type + "</p><p><strong>TITLE:</strong> " + ticket.title + "</p><p>This email is to let you know this ticket has been completed. Thanks again for raising your issue.</p><p>Many thanks,</p><p>The Unicorn Attractor Team</p>" 
+    html_content = "<p>Hi " + ticket.creator + "</p><p>You raised the below ticket on our website:</p><p><strong>TYPE:</strong> " + ticket.ticket_type + "</p><p><strong>TITLE:</strong> " + ticket.title + "</p><p>This email is to let you know this ticket has been completed. Thanks again for raising your issue.</p><p>Many thanks,</p><p>The Unicorn Attractor Team</p>"
     msg = EmailMessage(subject, html_content, from_email, [to])
     msg.content_subtype = "html"
     msg.send()
-                
+
     ticket.status = 'Complete'
     ticket.completion_date = timezone.now()
     ticket.save()
