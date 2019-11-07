@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'accounts',
     'tickets',
     'blog',
-    'comments',
     'statistic',
     
   
