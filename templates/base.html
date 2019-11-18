@@ -25,8 +25,8 @@
         <div class="col">
         <ul id="nav" class="list-inline menucontainer">
         <a href="{% url 'index' %}"><i class="fas fa-home"></i>HOME</a>
-        <a href="{% url 'create_feature_request' %}" <i class="far fa-carrot"></i>CREATE FEATURE REQUESTS</a>
-        <a href="{% url 'create_bug' %}"<i class="fas fa-spider"></i>CREATE BUGS</a>
+        <a href="{% url 'create_feature_request' %}"<i class="far fa-carrot"></i>CREATE FEATURE REQUESTS</a>
+        <a href="{% url 'create_bug' %}"><i class="fas fa-spider"></i>CREATE BUGS</a>
         <a href="{% url 'get_charts' %}"><i class="fas fa-chart-pie"></i>STATISTICS</a>
         <a href="{% url 'get_posts' %}"><i class="fab fa-blogger"></i>BLOGS</a>
         {% if user.is_authenticated %}

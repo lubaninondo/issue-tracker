@@ -6,8 +6,6 @@ from django.utils import timezone
 from django.conf import settings
 from .models import Ticket
 from .forms import TicketForm, PaymentForm
-from comments.models import Comment
-from comments.forms import CommentForm
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -71,21 +69,9 @@ def upvote_payment(request, pk):
 
 def ticket_detail(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
-    comments = Comment.objects.filter(comment='user')
 
-    if request.method == "POST":
-        comment_form = CommentForm(request.POST)
-        if comment_form.is_valid():
-            user = request.user if request.user else 'anonymous'
-            comment = Comment(user=user,
-                                comment=comment_form.cleaned_data['comment'],
-                                comment_date=timezone.now())
-            comment.save()
-            return redirect(ticket_detail, ticket.pk)
-    else:
-        comment_form = CommentForm()
 
-    return render(request, 'ticket-detail.html', {'ticket': ticket, 'comments': comments, 'comment_form': comment_form})
+    return render(request, 'ticket-detail.html', {'ticket': ticket})
 
 
 @login_required
