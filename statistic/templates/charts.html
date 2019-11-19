@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-12 text-left">
-                        <span><i class="fas fa-bug fa-lg page-icon"></i>HIGHEST VOTED BUG</span>
+                        <span><i class="fas fa-spider"></i>HIGHEST VOTED BUG</span>
                     </div>
                 </div>
                 <div class="card-body">
@@ -31,7 +31,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-12 text-left">
-                        <span><i class="fas fa-lightbulb fa-lg page-icon"></i>HIGHEST VOTED FEATURE REQUEST</span>
+                        <span><i class="far fa-carrot"></i>HIGHEST VOTED FEATURE REQUEST</span>
                     </div>
                 </div>
                 <div class="card-body">
@@ -115,7 +115,7 @@
                     data: [total_bugs, total_feature_requests],
                     backgroundColor: [
                         'magenta',
-                        '#2E353D',
+                        '#FFA07A',
                     ],
                     borderColor: [
                         'magenta',
@@ -132,11 +132,11 @@
                 labels: ["BACKLOG", "IN PROGRESS", "COMPLETE"],
                 datasets: [{
                     label: "Bugs",
-                    backgroundColor: "magenta",
+                    backgroundColor: "#FFC300",
                     data: [open_bugs, in_progress_bugs, completed_bugs]
                 }, {
                     label: "Feature Requests",
-                    backgroundColor: "#2E353D",
+                    backgroundColor: "#FFA07A",
                     data: [open_feature_requests, in_progress_feature_requests, completed_feature_requests]
                 }]
             },
@@ -158,11 +158,11 @@
                 labels: ["TICKETS"],
                 datasets: [{
                     label: "Bugs",
-                    backgroundColor: "magenta",
+                    backgroundColor: "#FFC300",
                     data: [user_bugs]
                 }, {
                     label: "Feature Requests",
-                    backgroundColor: "#2E353D",
+                    backgroundColor: "#FFA07A",
                     data: [user_feature_requests]
                 }]
             },
