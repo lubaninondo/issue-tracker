@@ -4,7 +4,7 @@
    {% if user.is_superuser %}
     <div class="row">
         <div class="col-8 offset-2 text-center">
-            <a href="{% url 'new_post' %}" class="btn btn-base"><i class="fa fa-plus fa-lg page-icon"></i>CREATE BLOG POST</a>
+            <a href="{% url 'new_post' %}" class="btn btn-base"><i class="fas fa-paper-plane"></i>>CREATE BLOG POST</a>
         </div>
     </div>
     {% endif %}
@@ -15,13 +15,13 @@
                     <div class="card-header">
                         <div class="container">
                             <div class="row">
-                                <div class="col-7 text-left card-title">
-                                    <i class="fa fa-book-open fa-lg page-icon"></i>
+                                <div class="col-6 text-left card-title">
+                                    <i class="fas fa-paper-plane"></i>
                                     <span>BLOG POST</span> 
                                 </div>
                                 <div class="col-5 text-right card-title view-btn">
                                     <a class="view-link" href="{% url 'post_detail' post.id %}">
-                                        <span class="btn">VIEW</span><i class="fa fa-eye fa-lg page-icon"></i>
+                                        <span class="btn">Read Blog</span><i class="fas fa-paper-plane"></i>
                                     </a>
                                 </div>
                             </div>
@@ -34,8 +34,8 @@
                                 <div class="col-12 text-left">
                                     <h6>{{ post.title }}</h6>
                                     <p class="card-text">
-                                        {% if post.content|length > 30 %}
-                                            {{ post.content|truncatewords:30 }}
+                                        {% if post.content|length > 40 %}
+                                            {{ post.content|truncatewords:40 }}
                                         {% else %}
                                             {{ post.content }}
                                         {% endif %}
@@ -48,7 +48,7 @@
                     <div class="card-footer">
                         <div class="container">
                             <div class="row">
-                                <div class="col-12 text-right">
+                                <div class="col-12">
                                     <span>VIEWS: {{ post.views }}</span>
                                 </div>
                             </div>

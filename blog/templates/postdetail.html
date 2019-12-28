@@ -1,13 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ get_posts }}{% endblock %} 
 {% block content %}
-    {% if post.image %}
-    <div class="row">
-        <div class="col-12">
-            <img src="{{ MEDIA_URL }}{{ post.image }}" class="img-fluid" alt="Responsive image">
-        </div>
-    </div>
-    {% endif %}
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -32,10 +25,10 @@
                 <div class="card-footer">
                     <div class="container">
                         <div class="row">
-                            <div class="col-6 text-left">
+                            <div class="col-6">
                                 <span>VIEWS: {{ post.views }}</span>
                             </div>
-                            <div class="col-6 text-right">
+                            <div class="col-6">
                                 <span>{{ post.published_date }}</span>
                             </div>
                         </div>
