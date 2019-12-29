@@ -22,6 +22,8 @@ The application contains the following features:
 
 **##Registration and sign in**: The user will need to register using the email and password. These will be used for signing in. A user will need to sign in to create bugs and feature requests
 
+**##Sign Out** : The user can sign out after using the site
+
 **##Tickets Creation**: The two issues that can be created are bugs and features. The user can create a bug for free and features for a fee. A user can delete or edit the issue that she has created.
 
 **##Upvote**: The user can upvote for the bug and features she believes should be worked on first. Voting for a bug is free and for features is 5 euro
@@ -114,12 +116,13 @@ The following features are yet to be added:
 
 2.Click the Upvote Bug icon and Bug upvoted appears with bug details
 
-##**Statistics** Click statistics and view all statistics
+##**Statistics**: Click statistics and view all statistics
 
-##**Admin** If logged as a admin and /admin in front of the website instead of ticket.
+##**Admin**: If logged as a admin and /admin in front of the website instead of ticket.
 
 Assess tickets, change the progress of tickets, delete ticket and edit ticket
 
+##**Sign OUt**: Click Sign out and message Successful logged out appears
 
 #**DEPLOYMENT**
 
