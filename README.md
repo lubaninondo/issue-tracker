@@ -28,6 +28,8 @@ The application contains the following features:
 
 **##Upvote**: The user can upvote for the bug and features she believes should be worked on first. Voting for a bug is free and for features is 5 euro
 
+**##Filter**: The user can choose to only view either bugs or features
+
 **##User Rights**: A registered user can delete and edit the tickets that he created. The superuser can edit, delete and change status of any ticket
 
 **##Blog**: Any person can access the blog but only the superuser can create new content
@@ -122,7 +124,9 @@ The following features are yet to be added:
 
 Assess tickets, change the progress of tickets, delete ticket and edit ticket
 
-##**Sign OUt**: Click Sign out and message Successful logged out appears
+##**Sign Out**: Click Sign out and message Successful logged out appears
+
+##**Filter**: Click downward Arrow in Filter and choose to view both bugs and features by selecting All, only Features by selecting Feature Request and only bugs by selecting Bugs
 
 #**DEPLOYMENT**:
 
