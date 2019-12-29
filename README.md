@@ -20,7 +20,7 @@ Create the blog if she is the administrator
 
 The application contains the following features:
 
-**##Registration and sign in**: The user will need to register using the email and password. These will be used for signing in. A user will need to sign in to create bugs and feature requests
+**##Registration and sign in##**: The user will need to register using the email and password. These will be used for signing in. A user will need to sign in to create bugs and feature requests
 
 **##Sign Out** : The user can sign out after using the site
 
@@ -71,15 +71,15 @@ The following features are yet to be added:
 
 2. correct login details you get username and successful login message
 
-3. Sumbit an empty document message about required field missing appears
+3. Submit an empty document message about required field missing appears
 
-##**Registration Form**: Fill the registration form
+##**Registration Form**##: Fill the registration form
 
 1. Input an existing username a message saying username already exist appears
 
 2. Correct registration directs to home page/index.html
 
-3. Sumbit an empty document message about required field missing appears
+3. Submit an empty document message about required field missing appears
 
 ##**Blog**: Superuser fills blog form and submit
 
