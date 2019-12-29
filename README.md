@@ -20,7 +20,7 @@ Create the blog if she is the administrator
 
 The application contains the following features:
 
-**##Registration and sign in##**: The user will need to register using the email and password. These will be used for signing in. A user will need to sign in to create bugs and feature requests
+**##Registration and sign in**: The user will need to register using the email and password. These will be used for signing in. A user will need to sign in to create bugs and feature requests
 
 **##Sign Out** : The user can sign out after using the site
 
@@ -36,9 +36,9 @@ The application contains the following features:
 
 The following features are yet to be added:
 
-##comments
+##**comments**
 
-##Profile Picture
+##**Profile Picture**
 
 #**TECHNOLOGY USED**
 
@@ -124,11 +124,11 @@ Assess tickets, change the progress of tickets, delete ticket and edit ticket
 
 ##**Sign OUt**: Click Sign out and message Successful logged out appears
 
-#**DEPLOYMENT**
+#**DEPLOYMENT**:
 
 This project has been deployed to [Github](https://github.com/lubaninondo/issue-tracker/) and hosted on [Heroku](https://lubani-issue-tracker.herokuapp.com/tickets/) 
 
-#**CREDIT**
+#**CREDIT**:
 
 This project has been inspired by [Code Institute](https://github.com/Code-Institute-Solutions/PuttingItAllTogether-Ecommerce/tree/master/03-HostingYourEcommerceWebApp/07-heroku_hosting), [Itoulou](https://github.com/itoulou/unicorn-attractor), [ShaunZA](https://github.com/ShaunZA/django-issue-tracker), [neon-flights](https://github.com/neon-flights/unicorn-attractor)
 
