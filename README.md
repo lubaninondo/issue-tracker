@@ -26,7 +26,7 @@ The user will need to register using the email and password. These will be used 
 ## **Sign Out** :
 The user can sign out after using the site
 
-## ** Tickets Creation**: 
+## **Tickets Creation**: 
 The two issues that can be created are bugs and features. The user can create a bug for free and features for a fee. A user can delete or edit the issue that she has created.
 
 ## **Upvote**: 
