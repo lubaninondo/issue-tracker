@@ -20,21 +20,29 @@ Create the blog if she is the administrator
 
 The application contains the following features:
 
-## **Registration and sign in**: The user will need to register using the email and password. These will be used for signing in. A user will need to sign in to create bugs and feature requests
+## **Registration and sign in**:
+The user will need to register using the email and password. These will be used for signing in. A user will need to sign in to create bugs and feature requests
 
-## **Sign Out** : The user can sign out after using the site
+## **Sign Out** :
+The user can sign out after using the site
 
-## ** Tickets Creation**: The two issues that can be created are bugs and features. The user can create a bug for free and features for a fee. A user can delete or edit the issue that she has created.
+## ** Tickets Creation**: 
+The two issues that can be created are bugs and features. The user can create a bug for free and features for a fee. A user can delete or edit the issue that she has created.
 
-## **Upvote**: The user can upvote for the bug and features she believes should be worked on first. Voting for a bug is free and for features is 5 euro
+## **Upvote**: 
+The user can upvote for the bug and features she believes should be worked on first. Voting for a bug is free and for features is 5 euro
 
-## **Filter**: The user can choose to only view either bugs or features
+## **Filter**: 
+The user can choose to only view either bugs or features
 
-## **User Rights**: A registered user can delete and edit the tickets that he created. The superuser can edit, delete and change status of any ticket
+## **User Rights**: 
+A registered user can delete and edit the tickets that he created. The superuser can edit, delete and change status of any ticket
 
-## **Blog**: Any person can access the blog but only the superuser can create new content
+## **Blog**: 
+Any person can access the blog but only the superuser can create new content
 
-## **Statistics**: Any person visiting the website has access to the statistics, that is the bug with the highest votes, feature with the highest votes, number of bugs and features created and the progress of features and bugs
+## **Statistics**:
+Any person visiting the website has access to the statistics, that is the bug with the highest votes, feature with the highest votes, number of bugs and features created and the progress of features and bugs
 
 The following features are yet to be added:
 
@@ -83,7 +91,8 @@ The following features are yet to be added:
 
 3. Submit an empty document message about required field missing appears
 
-## **Blog**: Superuser fills blog form and submit
+## **Blog**: 
+Superuser fills blog form and submit
 
 ## **Create Feature Request**:
 
@@ -120,13 +129,16 @@ The following features are yet to be added:
 
 ## **Statistics**: Click statistics and view all statistics
 
-## **Admin**: If logged as a admin and /admin in front of the website instead of ticket.
+## **Admin**: 
+If logged as a admin and /admin in front of the website instead of ticket.
 
 Assess tickets, change the progress of tickets, delete ticket and edit ticket
 
-## **Sign Out**: Click Sign out and message Successful logged out appears
+## **Sign Out**: 
+Click Sign out and message Successful logged out appears
 
-## **Filter**: Click downward Arrow in Filter and choose to view both bugs and features by selecting All, only Features by selecting Feature Request and only bugs by selecting Bugs
+## **Filter**:
+Click downward Arrow in Filter and choose to view both bugs and features by selecting All, only Features by selecting Feature Request and only bugs by selecting Bugs
 
 # **DEPLOYMENT**:
 
