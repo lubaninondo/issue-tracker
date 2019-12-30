@@ -23,10 +23,10 @@ SECRET_KEY= os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in ticketion!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['7b802ac4fabd408db01336ff783f2d87.vfs.cloud9.eu-west-1.amazonaws.com', 'lubani-issue-tracker.herokuapp.com']
-#ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), 'issue-tracker2.herokuapp.com']
+#ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'),  'lubani-issue-tracker.herokuapp.com']
 
 # Application definition
 
