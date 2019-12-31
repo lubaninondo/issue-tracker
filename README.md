@@ -7,12 +7,19 @@ This application allows the user to create feature requests and bugs. Submission
 # **UX**
 
 The user will be able to:
+
 raise bugs
+
 upvote bugs
+
 Raise feature requests for thirty euro
+
 Upvote feature request for 5 euro
+
 Can view statistics of bugs and features
+
 Read the blog
+
 Create the blog if she is the administrator
 
 
