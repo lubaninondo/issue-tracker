@@ -151,6 +151,29 @@ Click downward Arrow in Filter and choose to view both bugs and features by sele
 
 This project has been deployed to [Github](https://github.com/lubaninondo/issue-tracker/) and hosted on [Heroku](https://lubani-issue-tracker.herokuapp.com/tickets/) 
 
+**This is how I deploy to Heroku:**
+
+ I click deployed on Heroku and connected to GitHub and chose lubaninondo/issue-tracker
+ 
+ I clicked deploy branch.
+ 
+ **Var Config**
+ 
+ AWS_SECRET_ACCESS_KEY
+ 
+ AWS_SECRET_KEY_ID
+ 
+ DATABASE_URL
+ 
+ DISABLE_COLLECTSTATIC
+ 
+ SECRET_KEY
+ 
+ STRIPE_PUBLISHABLE
+ 
+ STRIPE_SECRET
+ 
+
 # **CREDIT**:
 
 This project has been inspired by [Code Institute](https://github.com/Code-Institute-Solutions/PuttingItAllTogether-Ecommerce/tree/master/03-HostingYourEcommerceWebApp/07-heroku_hosting), [Itoulou](https://github.com/itoulou/unicorn-attractor), [ShaunZA](https://github.com/ShaunZA/django-issue-tracker), [neon-flights](https://github.com/neon-flights/unicorn-attractor)
