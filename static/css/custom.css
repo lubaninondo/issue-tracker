@@ -96,3 +96,9 @@ body, html {
     font-size: 1.6em;
 }
 
+@media(min-width: 992px) {
+    .section-column {
+        padding: 0 30px 30px;
+        float: none;
+        display: table-cell;
+    }}
