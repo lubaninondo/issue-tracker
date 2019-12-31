@@ -173,6 +173,10 @@ This project has been deployed to [Github](https://github.com/lubaninondo/issue-
  
  STRIPE_SECRET
  
+ **Continuous Integration**
+ 
+[Travis](https://travis-ci.org/)
+ 
 
 # **CREDIT**:
 
