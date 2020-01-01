@@ -149,7 +149,7 @@ Click downward Arrow in Filter and choose to view both bugs and features by sele
 
 # **DEPLOYMENT**:
 
-This project has been deployed to [Github](https://github.com/lubaninondo/issue-tracker/) and hosted on [Heroku](https://lubani-issue-tracker.herokuapp.com/tickets/) 
+This project has been deployed to [Heroku](https://lubani-issue-tracker.herokuapp.com/tickets/) with a separate branch on         [Github](https://github.com/lubaninondo/issue-tracker/) 
 
 **This is how I deploy to Heroku:**
 
