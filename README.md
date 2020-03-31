@@ -7,12 +7,19 @@ This application allows the user to create feature requests and bugs. Submission
 # **UX**
 
 The user will be able to:
+
 raise bugs
+
 upvote bugs
+
 Raise feature requests for thirty euro
+
 Upvote feature request for 5 euro
+
 Can view statistics of bugs and features
+
 Read the blog
+
 Create the blog if she is the administrator
 
 
@@ -142,7 +149,34 @@ Click downward Arrow in Filter and choose to view both bugs and features by sele
 
 # **DEPLOYMENT**:
 
-This project has been deployed to [Github](https://github.com/lubaninondo/issue-tracker/) and hosted on [Heroku](https://lubani-issue-tracker.herokuapp.com/tickets/) 
+This project has been deployed to [Heroku](https://lubani-issue-tracker.herokuapp.com/tickets/) with a separate branch on         [Github](https://github.com/lubaninondo/issue-tracker/) 
+
+**This is how I deploy to Heroku:**
+
+ I click deployed on Heroku and connected to GitHub and chose lubaninondo/issue-tracker
+ 
+ I clicked deploy branch.
+ 
+ **Var Config**
+ 
+ AWS_SECRET_ACCESS_KEY
+ 
+ AWS_SECRET_KEY_ID
+ 
+ DATABASE_URL
+ 
+ DISABLE_COLLECTSTATIC
+ 
+ SECRET_KEY
+ 
+ STRIPE_PUBLISHABLE
+ 
+ STRIPE_SECRET
+ 
+ **Continuous Integration**
+ 
+[Travis](https://travis-ci.org/)
+ 
 
 # **CREDIT**:
 
