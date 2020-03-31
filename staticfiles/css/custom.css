@@ -3,7 +3,7 @@
 body, html {
     font-family: 'Montserrat', sans-serif;
     padding-bottom: 40px;
-    background-color: #B0E0E6;
+    background-color: #ccd9ff;
 }
 
 
@@ -20,11 +20,10 @@ body, html {
 .nav {
   overflow: auto;
   font-family: verdana;
-  font-size: 12px;
-  font-weight: 200;
-  background-color: #2e353d;
+  font-size: 10px;
+  font-weight: 300;
+  background-color: #00bfff;
   position: fixed;
-  top: 0px;
   width: 300px;
   height: 100%;
   color: #e1ffff;
@@ -33,7 +32,7 @@ body, html {
 
 
 @media (max-width: 767px) {
-  .nav {
+  .nav-side-menu {
     position: relative;
     width: 100%;
     margin-bottom: 10px;
@@ -49,12 +48,12 @@ body, html {
    .card-header {
     padding-left: 0px;
     padding-right: 0px;
-    background-color: #00FFFF;
+    background-color: #B0E0E6;
   }
   
    .card-body .container .row div {
     margin-bottom: 10px;
-    background-color: #FF45FF;
+    background-color: #ffff00;
   }
   
   .card-title {
@@ -62,21 +61,21 @@ body, html {
     padding-left: 0px;
     padding-right: 0px;
     margin-bottom: 0px;
-    background-color: #FF45FF;
+    background-color: #ffff00;
   }
   
   .row{
     background-color:green;
   }
   .new-ticket-title, .payment-title {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 30px;
   }
 }
   
   .ticket-status {
     margin-top: 15px;
-    background-color: #FF45FF;
+    background-color: #ffff00;
   }
   
   .ticket-upvotes {
@@ -92,30 +91,14 @@ body, html {
     background-color: #2E353D;
   }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    margin-top: 40px;
-    border-top: 1px solid #ededed;
-    background-color: white;
-    color: #A9A9A9;
-}
-
-.footer-list {
-    display: flex;
-    list-style: none;
-}
-
-.footer-item {
-    padding-left: 0px;
-}
-
-
-
 
 .createticketform label {
     font-size: 1.6em;
 }
 
+@media(min-width: 992px) {
+    .section-column {
+        padding: 0 30px 30px;
+        float: none;
+        display: table-cell;
+    }}
